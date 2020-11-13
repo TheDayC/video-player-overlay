@@ -8,9 +8,7 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier',
-        'prettier/@typescript-eslint'
+        'plugin:@typescript-eslint/recommended'
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
@@ -26,8 +24,9 @@ module.exports = {
     ],
     'rules': {
         'indent': [
-            'warning',
-            4
+            'warn',
+            4,
+            { 'SwitchCase': 1 }
         ],
         'linebreak-style': [
             'error',
@@ -41,14 +40,25 @@ module.exports = {
             'error',
             'always'
         ],
-        '@typescript-eslint/explicit-module-boundary-types': ['error', {
-            'allowDirectConstAssertionInArrowFunctions': true
-        }],
-        'react/prop-types': 0
+        '@typescript-eslint/typedef': [
+            'error',
+            {
+                arrowParameter: false,
+                parameter: true,
+                propertyDeclaration: true,
+                memberVariableDeclaration: true,
+                variableDeclarationIgnoreFunction: true
+            }
+        ],
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'react/prop-types': 0,
+        'no-case-declarations': 'off'
     },
     'settings': {
         'react': {
-            'version': '16.13.1'
+            'version': '17.0.1'
         }
     }
 };
