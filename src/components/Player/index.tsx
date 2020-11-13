@@ -4,7 +4,7 @@ const url = 'https://buffup-public.s3.eu-west-2.amazonaws.com/video/toronto+nba+
 
 const Player: React.FC = () => {
     return (
-        <div className="playerWrapper">
+        <div className="playerWrapper" data-player="primary-player">
             <video controls>
                 <source src={url} type="video/mp4" />
                 Please switch to a browser that supports HTML 5.
